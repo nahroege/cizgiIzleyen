@@ -1,0 +1,46 @@
+int solYon =13;
+int sagYon =12;
+int solPwm =11;
+int sagPwm =3;
+int buzzer =A2;
+void setup(){
+  pinMode(solYon,OUTPUT);
+  pinMode(sagYon,OUTPUT);
+  pinMode(solPwm,OUTPUT);
+  pinMode(sagPwm,OUTPUT);
+  pinMode(buzzer,OUTPUT);
+  pinMode(A3,INPUT);
+  pinMode(A4,INPUT);
+  pinMode(A5,INPUT);
+  digitalWrite(solYon,LOW);
+  digitalWrite(sagYon,LOW);
+  analogWrite(solPwm,0);
+  analogWrite(sagPwm,0);
+}
+
+void loop()
+{
+  if(digitalRead(A4)==HIGH)
+  {
+    analogWrite(solPwm,100);
+    analogWrite(sagPwm,100);
+    digitalWrite(solPwm,100);
+    digitalWrite(sagPwm,100);
+
+  }
+  else if(digitalRead (A5)==HIGH)
+  {
+    analogWrite(solPwm,10);
+    analogWrite(sagPwm,100);
+    digitalWrite(solYon,LOW);
+    digitalWrite(sagYon,HIGH);
+  }
+
+  else if(digitalRead(A3)==HIGH)
+  {
+    analogWrite(solPwm,100);
+    analogWrite(sagPwm,10);
+    digitalWrite(solYon,HIGH);
+    digitalWrite(sagYon,LOW);
+  }
+}
